@@ -1116,7 +1116,7 @@ export default function MagenApp() {
 
           {NAV.map(navMod => (
             <div key={navMod.id}>
-              <button onClick={() => goTo(navMod.id)} style={{ width: "100%", background: activeModule === navMod.id ? navMod.lightColor : "transparent", borderRight: `4px solid ${activeModule === navMod.id ? navMod.color : "transparent"}`, border: "none", borderRightWidth: 4, borderRightStyle: "solid", borderRightColor: activeModule === navMod.id ? navMod.color : "transparent", padding: "10px 14px", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, transition: "all 0.15s", textAlign: "right", fontFamily: "inherit" }}>
+              <button onClick={() => goTo(navMod.id)} style={{ width: "100%", background: activeModule === navMod.id ? navMod.lightColor : "transparent", borderTop: "none", borderBottom: "none", borderLeft: "none", borderRightWidth: 4, borderRightStyle: "solid", borderRightColor: activeModule === navMod.id ? navMod.color : "transparent", padding: "10px 14px", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, transition: "all 0.15s", textAlign: "right", fontFamily: "inherit" }}>
                 <span style={{ fontSize: 17 }}>{navMod.icon}</span>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 13, color: activeModule === navMod.id ? navMod.color : C.text }}>{navMod.label}</div>
