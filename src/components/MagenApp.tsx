@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import BreathingChild from "./BreathingChild";
+import PandaBaby from "./PandaBaby";
 
 /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
 const C: Record<string, string> = {
@@ -837,13 +838,21 @@ function BreathingView({ subId }: { subId: string }) {
       <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <div style={{ background: pattern.bg, borderRadius: 24, padding: "20px 24px", border: `2px solid ${pattern.color}33`, boxShadow: `0 8px 28px ${pattern.glow}`, display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <BreathingChild
-              phaseType={active ? phase.type : "hold-out"}
-              duration={phase.duration}
-              running={running}
-              color={pattern.color}
-              emoji={pattern.emoji}
-            />
+            {subId === "balloon" ? (
+              <PandaBaby
+                phaseType={active ? phase.type : "hold-out"}
+                duration={phase.duration}
+                running={running}
+              />
+            ) : (
+              <BreathingChild
+                phaseType={active ? phase.type : "hold-out"}
+                duration={phase.duration}
+                running={running}
+                color={pattern.color}
+                emoji={pattern.emoji}
+              />
+            )}
             <div style={{ textAlign: "center", marginTop: 8 }}>
               <div style={{ fontSize: 22, fontWeight: 900, color: active ? phaseColors[phase.type] : C.textMuted, minHeight: 30, transition: "color 0.3s" }}>{active ? phase.label : "מוכן?"}</div>
               <div style={{ fontSize: 13, color: C.textLight, minHeight: 20, marginTop: 2 }}>{active ? phase.sub : ""}</div>
