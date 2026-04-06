@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import BreathingChild from "./BreathingChild";
 import PandaBaby from "./PandaBaby";
+import dynamic from "next/dynamic";
+const Panda3D = dynamic(() => import("./Panda3D"), { ssr: false });
 
 /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
 const C: Record<string, string> = {
@@ -839,7 +841,7 @@ function BreathingView({ subId }: { subId: string }) {
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <div style={{ background: pattern.bg, borderRadius: 24, padding: "20px 24px", border: `2px solid ${pattern.color}33`, boxShadow: `0 8px 28px ${pattern.glow}`, display: "flex", flexDirection: "column", alignItems: "center" }}>
             {subId === "balloon" ? (
-              <PandaBaby
+              <Panda3D
                 phaseType={active ? phase.type : "hold-out"}
                 duration={phase.duration}
                 running={running}
